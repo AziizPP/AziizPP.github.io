@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Saudi Arabia Total Fertility Rate",
+    "subtitle": "Source: World Bank"
+  },
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/SA/indicator/SP.DYN.TFRT.IN?format=json",
+    "format": {"property": "[1]"}
+  },
+  "mark": {
+    "type": "area",
+    "line": {"color": "purple"},
+    "color": {
+      "x1": 1,
+      "y1": 1,
+      "x2": 1,
+      "y2": 0,
+      "gradient": "linear",
+      "stops": [
+        {"offset": 0, "color": "white"},
+        {"offset": 1, "color": "purple"}
+      ]
+    }
+  },
+  "encoding": {
+    "x": {"field": "date", "type": "temporal", "title": "Year"},
+    "y": {"field": "value", "type": "quantitative", "title": "TFR"}
+  }
+}
