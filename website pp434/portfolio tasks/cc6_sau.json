@@ -1,0 +1,14 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Saudi Arabia", "anchor": "start", "fontSize": 12, "color": "#ececec"},
+  "height": 150, "width": 250,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "background": "#2f393f",
+  "view": {"fill": "#2f393f", "strokeOpacity": 0},
+  "data": {"url": "gcc_gdp_sau.json"},
+  "mark": {"type": "line", "color": "#ff6b42", "strokeWidth": 2},
+  "encoding": {
+    "x": {"field": "date", "type": "ordinal", "axis": {"labelColor": "#ffffff", "titleColor": "#ffffff", "title": "", "labelAngle": -45, "grid": false, "labelFontSize": 8, "labelExpr": "parseInt(datum.value) % 2 == 0 ? datum.value : ''"}},
+    "y": {"field": "value", "type": "quantitative", "axis": {"labelColor": "#ffffff", "titleColor": "#ffffff", "title": "", "grid": true, "labelFontSize": 8}}
+  }
+}

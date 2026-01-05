@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json",
+  "width": 400,
+  "height": 300,
+  "background": "#2f393f",
+  "view": {"fill": "#2f393f", "stroke": null},
+  "data": {"name": "data-7684334a68ab74ba4c3ca7d0ceaeb461"},
+  "mark": {"type": "bar", "color": "#ff6b42"},
+  "encoding": {
+    "x": {
+      "field": "a",
+      "type": "nominal",
+      "axis": {"title": "years"},
+      "scale": {"paddingInner": 0.8, "paddingOuter": 0.2}
+    },
+    "y": {"field": "b", "type": "quantitative", "axis": {"title": "%"}},
+    "size": {"value": 40}
+  },
+  "title": {
+    "text": "% of College Enrolled Students Under 25",
+    "anchor": "middle",
+    "fontSize": 12,
+    "color": "#ffffff"
+  },
+  "config": {
+    "axis": {
+      "labelColor": "#ffffff",
+      "titleColor": "#ffffff",
+      "domainColor": "#ffffff",
+      "tickColor": "#ffffff"
+    }
+  },
+  "datasets": {
+    "data-7684334a68ab74ba4c3ca7d0ceaeb461": [
+      {"a": "1972", "b": 28},
+      {"a": "1973", "b": 55},
+      {"a": "1974", "b": 43},
+      {"a": "1975", "b": 91},
+      {"a": "1976", "b": 81}
+    ]
+  }
+}

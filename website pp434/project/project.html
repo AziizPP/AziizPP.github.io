@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>FDI in Saudi Arabia - Data Science Project</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        body {
+            background-color: #172229;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1.big {
+            color: #e6e6e6;
+        }
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #ff8742;
+        }
+        
+        .header-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #ff8742;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #ff8742;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #e6e6e6;
+        }
+
+        a {
+            color: #ff8742;
+        }
+
+        code {
+            background-color: rgba(0,0,0,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff8742;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <a href="../portfolio%20tasks/index.html" class="nav-link">← Back to Portfolio</a>
+
+    <div class="header-box">
+        <h1 class="big" style="margin-bottom: 0px;">Foreign Direct Investment in Saudi Arabia</h1>
+        <p style="margin-top: 0px; color: #ff8742">PP434 Data Science Project | Abdulaziz Alhakbani</p>
+    </div>
+    
+    <!-- AIMS -->
+        <h2>1. Aims</h2>
+        <p>This project analyzes trends in Foreign Direct Investment (FDI) in Saudi Arabia since 1990 to 2023. The main objective of the Vision 2030 strategy of Saudi Arabia is to diversify economy away from oil, and one of the main instruments the country is focusing on is attracting FDI to the Kingdom.</p>
+        <p>I will addresses three main questions: How have FDI evolved over time? How does the Kingdom compare to other similar GCC countries in attracting foreign investment? Which regions within the country dominate FDI activity?</p>
+
+
+
+    <!-- VISUALISATIONS -->
+    <section>
+        <h2>2. Visualisations</h2>
+
+        <h3>Chart 1: FDI Net Inflows to Saudi Arabia (1990-2023)</h3>
+        <p>After more than 2 decades of FDI net inflows moving around 0, and sometimes negative, FDI rised significantly post-2015 (with the announcement of Vision 2030 strategy) to unprecedented numbers, reaching over 28 billion USD in 2021.</p>
+
+        <figure id="chart1"></figure>
+
+        <h3>Chart 2: FDI as Percentage of GDP</h3>
+        <p>This chart highlights the importance of FDI in Saudi Arabia's economy. In the years before 2005, only 6 out of 15 years had positive FDI as a percentage of GDP, whereas in the years after 2005, every year (19 out of 19) showed positive FDI, which could indicate a shift in investor confidence.</p>
+        <figure id="chart2"></figure>
+
+        <h3>Chart 3: GCC FDI Comparison (Interactive)</h3>
+        <p>Select a country to compare FDI inflows across GCC economies:</p>
+        <figure id="chart3"></figure>
+
+        <h3>Chart 4: FDI vs GDP Growth Relationship</h3>
+        <figure id="chart4"></figure>
+
+        <h3>Chart 5: Saudi Arabia vs GCC Average FDI</h3>
+        <figure id="chart5"></figure>
+
+        <h3>Chart 6: Year-on-Year FDI Change</h3>
+        <figure id="chart6"></figure>
+
+        <h3>Chart 7: Top Investor Countries (2022)</h3>
+        <p>FDI stock by source country, showing the dominance of GCC neighbours and Western economies.</p>
+        <figure id="chart7"></figure>
+
+        <h3>Chart 8: FDI Distribution by Saudi Region (2022)</h3>
+        <p>Interactive choropleth map showing FDI stock concentration across Saudi Arabia's 13 administrative regions.</p>
+        <figure id="chart8"></figure>
+    </section>
+
+
+
+    <!-- CONCLUSIONS -->
+    <section>
+        <h2>3. Conclusions</h2>
+        <p>The analysis reveals four key findings:</p>
+        <ol>
+            <li><strong>Volatility:</strong> Saudi FDI shows high fluctuations but a noticable rise in the years after Vision 2030 strategy.</li>
+            <li><strong>Regional peers:</strong> Compared to UAE and Qatar, Saudi Arabia attracts lower FDI relative to GDP, singaling more room for growth in attracting investments.</li>
+            <li><strong>Investor concentration:</strong> The UAE and Luxembourg together account for over SAR 200 billion in FDI stock.</li>
+            <li><strong>Geographic concentration:</strong> The Eastern Region and Riyadh dominate FDI, reflecting oil industry and capital city effects.</li>
+        </ol>
+        <p>Future work could examine FDI by sector to assess which non-oil industries are gaining traction under Vision 2030.</p>
+    </section>
+    <!-- DATA -->
+    <section>
+        <h2>4. Data</h2>
+        <p>This project combines two data sources to provide comprehensive FDI analysis:</p>
+        
+        <h3>Source 1: World Bank Open Data API</h3>
+        <p><strong>Base URL:</strong> <code>https://api.worldbank.org/v2/</code></p>
+        <p><strong>Indicators used:</strong></p>
+        <ul>
+            <li><code>BX.KLT.DINV.CD.WD</code> — FDI net inflows (BoP, current US$)</li>
+            <li><code>BX.KLT.DINV.WD.GD.ZS</code> — FDI net inflows (% of GDP)</li>
+            <li><code>NY.GDP.MKTP.KD.ZG</code> — GDP growth (annual %)</li>
+        </ul>
+        <p><strong>Example API:</strong> <code>https://api.worldbank.org/v2/country/SAU/indicator/BX.KLT.DINV.CD.WD?format=json&date=1990:2023&per_page=100</code></p>
+
+        <h3>Source 2: Ministry of Investment - FDI Bulletin Q1 2024</h3>
+        <p>Official data extracted via Python from excel showing FDI stock by investor country and Saudi region.</p>
+        <p><strong>Processing:</strong> Data extracted from excel using Google Colab, and converted to JSON.</p>
+        
+        <p><strong>Google Colab Notebook:</strong></p>
+        <ul>
+            <li><a href="https://colab.research.google.com/drive/1F-XTwAuZgzYDsXHa_C-FowEGEdtlOBLO?usp=sharing" target="_blank">Ministry of Investment Excel Extraction</a></li>
+        </ul>
+    </section>
+        <!-- TOOLS -->
+    <section>
+        <h2>5. Tools & Methodology</h2>
+        <p><strong>Data Collection:</strong> Python scripts in Google Colab to download data from the World Bank API. For the Ministry of Investment data, I used multi-sheet Excel files, extracting specific rows/columns containing FDI by country (Sheet 4-1) and by region (Sheet 3-1). The regional map uses GeoJSON boundaries from OpenStreetMap, merged with FDI data via a lookup script.</p>
+        
+        <p><strong>Data Processing:</strong> API responses are parsed and filtered for null values, then exported to JSON. Excel extraction required mapping Arabic column headers to English region names and handling SAR millions to billions conversion.</p>
+        
+        <p><strong>Visualisation:</strong> All charts use Vega-Lite specifications. Charts 1-6 use live API data; Charts 7-8 use locally extracted JSON from the the Ministry of Investment bulletin. Consistent styling was applied across all charts.</p>
+
+        <p><strong>Challenges:</strong> The Ministry Excel file has complex multi-header structures requiring manual row/column indexing. For the choropleth map, region names in the GeoJSON required matching to FDI data (e.g., "Ash Sharqiyah" → "Eastern Region"). </p>
+
+        <p><strong>Gen AI:</strong> I used Gen AI tools to troubleshoot and suggest ways to further improve the code and find sources for data.</p>
+    </section>
+    <script>
+        // Charts 1-6: JSON file references (World Bank API data)
+        vegaEmbed('#chart1', 'project_fdi_inflows.json');
+        vegaEmbed('#chart2', 'project_fdi_gdp_pct.json');
+        vegaEmbed('#chart3', 'project_fdi_interactive.json');
+        vegaEmbed('#chart4', 'project_fdi_gdp_scatter.json');
+        vegaEmbed('#chart5', 'project_fdi_comparison.json');
+        vegaEmbed('#chart6', 'project_fdi_yoy_change.json');
+
+        // Chart 7: Top Investor Countries (Ministry of Investment data)
+        var chart7_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": {
+                "text": "Top Investor Countries in Saudi Arabia (2022)",
+                "anchor": "start",
+                "subtitle": "FDI Stock in SAR Billions | Source: Ministry of Investment",
+                "fontSize": 14,
+                "subtitleFontSize": 12,
+                "color": "#ececec",
+                "subtitleColor": "#ececec"
+            },
+            "width": 500,
+            "height": 400,
+            "background": "#2f393f",
+            "view": {"fill": "#2f393f", "strokeOpacity": 0},
+            "data": {
+                "url": "project_fdi_by_country.json"
+            },
+            "mark": {"type": "bar", "color": "#ff6b42"},
+            "encoding": {
+                "y": {
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": "-x",
+                    "axis": {"title": null, "labelColor": "#ffffff"}
+                },
+                "x": {
+                    "field": "fdi",
+                    "type": "quantitative",
+                    "axis": {"title": "FDI Stock (SAR Billions)", "labelColor": "#ffffff", "titleColor": "#ffffff", "grid": true}
+                },
+                "tooltip": [
+                    {"field": "country", "type": "nominal", "title": "Country"},
+                    {"field": "fdi", "type": "quantitative", "title": "FDI (SAR B)", "format": ".1f"}
+                ]
+            }
+        };
+        vegaEmbed('#chart7', chart7_spec);
+
+        // Chart 8: Regional FDI Choropleth Map (Ministry of Investment data + TopoJSON)
+        var chart8_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": {
+                "text": "FDI Stock by Saudi Region (2022)",
+                "anchor": "start",
+                "subtitle": "SAR Billions | Source: Ministry of Investment - Q1 2024 Bulletin",
+                "fontSize": 14,
+                "subtitleFontSize": 12,
+                "color": "#ececec",
+                "subtitleColor": "#ececec"
+            },
+            "width": 450,
+            "height": 500,
+            "background": "#2f393f",
+            "view": {"stroke": null},
+            "projection": {"type": "mercator"},
+            "data": {
+                "url": "saudi_fdi_regions.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "data"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "stroke": "#1d3327",
+                "strokeWidth": 0.8
+            },
+            "encoding": {
+                "color": {
+                    "field": "properties.fdi_stock",
+                    "type": "quantitative",
+                    "scale": {"scheme": "oranges"},
+                    "legend": {"title": "FDI (SAR B)", "titleColor": "#ececec", "labelColor": "#ececec"}
+                },
+                "tooltip": [
+                    {"field": "properties.name", "type": "nominal", "title": "Region"},
+                    {"field": "properties.fdi_stock", "type": "quantitative", "title": "FDI (SAR B)", "format": ".1f"}
+                ]
+            }
+        };
+        vegaEmbed('#chart8', chart8_spec);
+    </script>
+
+</body>
+    
+</html>

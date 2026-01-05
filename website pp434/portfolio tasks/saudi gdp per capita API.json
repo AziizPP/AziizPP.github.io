@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Saudi Arabia GDP Per Capita",
+    "anchor": "start",
+    "subtitle": "Current US$ | Source: World Bank API (Live Data)",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#ececec",
+    "subtitleColor": "#ececec"
+  },
+  "height": 300,
+  "width": 800,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "background": "#2f393f",
+  "view": {"fill": "#2f393f", "strokeOpacity": 0},
+  "data": {
+    "url": "https://api.worldbank.org/v2/country/SAU/indicator/NY.GDP.PCAP.CD?format=json&date=1990:2023&per_page=100",
+    "format": {"type": "json", "property": "[1]"}
+  },
+  "transform": [{"filter": "datum.value !== null"}],
+  "mark": {"type": "line", "color": "#ff6b42", "strokeWidth": 2},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "labelColor": "#ffffff", "titleColor": "#ffffff",
+        "grid": false,
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {"title": "", "labelColor": "#ffffff", "titleColor": "#ffffff", "grid": true}
+    }
+  },
+  "config": {}
+}

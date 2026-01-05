@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "GCC Countries: K-Means Clustering",
+    "anchor": "start",
+    "subtitle": "Clustered by GDP per capita, GDP growth, and oil dependency",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#ececec",
+    "subtitleColor": "#ececec"
+  },
+  "width": 600,
+  "height": 400,
+  "background": "#2f393f",
+  "view": {"fill": "#2f393f", "strokeOpacity": 0},
+  "data": {"url": "cc10_ml_data.json"},
+  "mark": {"type": "circle", "opacity": 0.8},
+  "encoding": {
+    "x": {
+      "field": "gdp_per_capita",
+      "type": "quantitative",
+      "axis": {"labelColor": "#ffffff", "titleColor": "#ffffff", "title": "GDP per Capita (USD)", "grid": true}
+    },
+    "y": {
+      "field": "oil_dependency",
+      "type": "quantitative",
+      "axis": {"labelColor": "#ffffff", "titleColor": "#ffffff", "title": "Oil Dependency (% of GDP)", "grid": true}
+    },
+    "size": {
+      "field": "population_million",
+      "type": "quantitative",
+      "scale": {"range": [100, 1000]},
+      "legend": {"title": "Population (M)", "titleColor": "#ececec", "labelColor": "#ececec"}
+    },
+    "color": {
+      "field": "cluster",
+      "type": "nominal",
+      "scale": {"range": ["#ff6b42", "#ffffff"]},
+      "legend": {"title": "Cluster", "titleColor": "#ececec", "labelColor": "#ececec"}
+    },
+    "tooltip": [
+      {"field": "country", "title": "Country"},
+      {"field": "gdp_per_capita", "title": "GDP per Capita", "format": ",.0f"},
+      {"field": "oil_dependency", "title": "Oil Dependency (%)", "format": ".1f"},
+      {"field": "gdp_growth", "title": "GDP Growth (%)", "format": ".1f"},
+      {"field": "cluster", "title": "Cluster"}
+    ]
+  }
+}
