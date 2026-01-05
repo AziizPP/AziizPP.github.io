@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Scotland Unemployment by Local Authority (Dec 2024)",
+    "anchor": "start",
+    "subtitle": "Unemployment rate (%) | Source: ONS",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#ececec",
+    "subtitleColor": "#ececec"
+  },
+  "width": 350,
+  "height": 450,
+  "background": "#2f393f",
+  "view": {"stroke": null},
+  "data": {
+    "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/series_data/unemp_LAD_SCT.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "datum.date == '2024-12'"
+    },
+    {
+      "lookup": "geo_id",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jhellingsdata/RADataHub/refs/heads/main/MappingWorkshop/geo_data/LAD_SCT_2025_05.topojson",
+          "format": {"type": "topojson", "feature": "object_name"}
+        },
+        "key": "properties.LAD25CD"
+      },
+      "as": "geo"
+    },
+    {
+      "calculate": "datum.geo.properties.LAD25NM",
+      "as": "LocalAuthority"
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#1d3327",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "shape": {"field": "geo", "type": "geojson"},
+    "color": {
+      "field": "value",
+      "type": "quantitative",
+      "scale": {"scheme": "oranges"},
+      "legend": {"title": "Unemployment (%)", "titleColor": "#ececec", "labelColor": "#ececec"}
+    },
+    "tooltip": [
+      {"field": "LocalAuthority", "type": "nominal", "title": "Local Authority"},
+      {"field": "value", "type": "quantitative", "title": "Unemployment (%)", "format": ".1f"},
+      {"field": "date", "type": "nominal", "title": "Date"}
+    ]
+  },
+  "projection": {
+    "type": "mercator"
+  }
+}

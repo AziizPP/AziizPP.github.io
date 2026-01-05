@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Gulf Cooperation Council Member States",
+    "anchor": "start",
+    "subtitle": "Source: Wikipedia (scraped)",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#ececec",
+    "subtitleColor": "#ececec"
+  },
+  "height": 300,
+  "width": 800,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "background": "#2f393f",
+  "view": {"fill": "#2f393f", "strokeOpacity": 0},
+  "data": {
+    "url": "gcc_data.json"
+  },
+  "mark": {"type": "bar", "color": "#ff6b42"},
+  "encoding": {
+    "x": {
+      "field": "country",
+      "type": "nominal",
+      "axis": {"title": "", "labelAngle": -45, "grid": false},
+      "sort": "-y"
+    },
+    "y": {
+      "field": "population",
+      "type": "quantitative",
+      "axis": {"title": "", "grid": true}
+    }
+  },
+  "config": {}
+}
