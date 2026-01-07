@@ -1,50 +1,50 @@
 [
   {
     "country":"Saudi Arabia",
-    "gdp_per_capita":23186,
-    "gdp_growth":0.54,
-    "population_million":36.9,
-    "oil_dependency":42,
+    "gdp_per_capita":38510.2276211037,
+    "gdp_growth":12.0005874753,
+    "oil_dependency":23.6862940574,
+    "population_million":32.175224,
     "cluster":"0"
   },
   {
     "country":"UAE",
-    "gdp_per_capita":43103,
-    "gdp_growth":3.6,
-    "population_million":9.5,
-    "oil_dependency":30,
+    "gdp_per_capita":50759.7589231191,
+    "gdp_growth":7.514484258,
+    "oil_dependency":15.673094533,
+    "population_million":10.074977,
     "cluster":"1"
   },
   {
     "country":"Qatar",
-    "gdp_per_capita":66838,
-    "gdp_growth":4.9,
-    "population_million":2.7,
-    "oil_dependency":39,
+    "gdp_per_capita":88701.4689763536,
+    "gdp_growth":4.1849701854,
+    "oil_dependency":15.2784667127,
+    "population_million":2.657333,
     "cluster":"1"
   },
   {
     "country":"Kuwait",
-    "gdp_per_capita":38124,
-    "gdp_growth":-0.6,
-    "population_million":4.3,
-    "oil_dependency":52,
+    "gdp_per_capita":39981.7691035833,
+    "gdp_growth":6.7586671197,
+    "oil_dependency":27.581689139,
+    "population_million":4.589643,
     "cluster":"0"
   },
   {
     "country":"Bahrain",
-    "gdp_per_capita":26562,
-    "gdp_growth":2.5,
-    "population_million":1.5,
-    "oil_dependency":18,
+    "gdp_per_capita":30470.5219276023,
+    "gdp_growth":6.1801612548,
+    "oil_dependency":10.9376756366,
+    "population_million":1.524693,
     "cluster":"1"
   },
   {
     "country":"Oman",
-    "gdp_per_capita":19509,
-    "gdp_growth":1.3,
-    "population_million":4.5,
-    "oil_dependency":36,
+    "gdp_per_capita":23223.5829405935,
+    "gdp_growth":7.9857072835,
+    "oil_dependency":23.538743507,
+    "population_million":4.730226,
     "cluster":"0"
   }
 ]
