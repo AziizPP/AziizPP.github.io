@@ -83,8 +83,8 @@
     
     <!-- AIMS -->
         <h2>1. Aims</h2>
-        <p>This project analyzes trends in Foreign Direct Investment (FDI) in Saudi Arabia since 1990 to 2023. The main objective of the Vision 2030 strategy of Saudi Arabia is to diversify economy away from oil, and one of the main instruments the country is focusing on is attracting FDI to the Kingdom.</p>
-        <p>I will addresses three main questions: How have FDI evolved over time? How does the Kingdom compare to other similar GCC countries in attracting foreign investment? Which regions within the country dominate FDI activity?</p>
+        <p>This project analyses trends in Foreign Direct Investment (FDI) in Saudi Arabia from 1990 to 2023. The main objective of Saudi Arabia's Vision 2030 strategy is to diversify the economy away from oil, and one of the main instruments the country is focusing on is attracting FDI to the Kingdom.</p>
+        <p>I will address three main questions: How have FDI evolved over time? How does the Kingdom compare to other similar GCC countries in attracting foreign investment? Which regions within the country have the highest share of FDI activity?</p>
 
 
 
@@ -93,11 +93,11 @@
         <h2>2. Visualisations</h2>
 
         <h3>Chart 1: FDI Net Inflows to Saudi Arabia (1990-2023)</h3>
-        <p>After more than 2 decades of FDI net inflows moving around 0, and sometimes negative, FDI rised significantly post-2015 (with the announcement of Vision 2030 strategy) to unprecedented numbers, reaching over 28 billion USD in 2021.</p>
+        <p>After more than 2 decades of FDI net inflows moving around 0, and sometimes negative, FDI rose significantly post-2015 (with the announcement of Vision 2030 strategy) to unprecedented numbers, reaching over 28 billion USD in 2021.</p>
 
         <figure id="chart1"></figure>
 
-        <h3>Chart 2: FDI as Percentage of GDP</h3>
+        <h3>Chart 2: FDI as % of GDP</h3>
         <p>This chart highlights the importance of FDI in Saudi Arabia's economy. In the years before 2005, only 6 out of 15 years had positive FDI as a percentage of GDP, whereas in the years after 2005, every year (19 out of 19) showed positive FDI, which could indicate a shift in investor confidence.</p>
         <figure id="chart2"></figure>
 
@@ -130,17 +130,17 @@
         <h2>3. Conclusions</h2>
         <p>The analysis reveals four key findings:</p>
         <ol>
-            <li><strong>Volatility:</strong> Saudi FDI shows high fluctuations but a noticable rise in the years after Vision 2030 strategy.</li>
-            <li><strong>Regional peers:</strong> Compared to UAE and Qatar, Saudi Arabia attracts lower FDI relative to GDP, singaling more room for growth in attracting investments.</li>
-            <li><strong>Investor concentration:</strong> The UAE and Luxembourg together account for over SAR 200 billion in FDI stock.</li>
-            <li><strong>Geographic concentration:</strong> The Eastern Region and Riyadh dominate FDI, reflecting oil industry and capital city effects.</li>
+            <li> Saudi FDI shows high fluctuations but a noticable rise in the years after Vision 2030 strategy.</li>
+            <li> Compared to UAE and Qatar, Saudi Arabia attracts lower FDI relative to GDP, singaling more room for growth in attracting investments.</li>
+            <li> The UAE and Luxembourg together account for over SAR 200 billion in FDI stock.</li>
+            <li> The Eastern Region and Riyadh dominate FDI, reflecting oil industry and capital city effects.</li>
         </ol>
-        <p>Future work could examine FDI by sector to assess which non-oil industries are gaining traction under Vision 2030.</p>
+        <p>Future work could examine FDI by sector to assess which non-oil industries are attracting investments under Vision 2030.</p>
     </section>
     <!-- DATA -->
     <section>
         <h2>4. Data</h2>
-        <p>This project combines two data sources to provide comprehensive FDI analysis:</p>
+        <p>This project combines two data sources to provide a comprehensive FDI analysis for the Kingdom:</p>
         
         <h3>Source 1: World Bank Open Data API</h3>
         <p><strong>Base URL:</strong> <code>https://api.worldbank.org/v2/</code></p>
@@ -153,12 +153,14 @@
         <p><strong>Example API:</strong> <code>https://api.worldbank.org/v2/country/SAU/indicator/BX.KLT.DINV.CD.WD?format=json&date=1990:2023&per_page=100</code></p>
 
         <h3>Source 2: Ministry of Investment - FDI Bulletin Q1 2024</h3>
-        <p>Official data extracted via Python from excel showing FDI stock by investor country and Saudi region.</p>
-        <p><strong>Processing:</strong> Data extracted from excel using Google Colab, and converted to JSON.</p>
+        <p>Official data extracted via Python from Excel showing FDI stock by investor country and Saudi region.</p>
+        <p><strong>Processing:</strong> Data extracted from Excel using Google Colab, and converted to JSON. </p>
         
         <p><strong>Google Colab Notebook:</strong></p>
         <ul>
             <li><a href="https://colab.research.google.com/drive/1F-XTwAuZgzYDsXHa_C-FowEGEdtlOBLO?usp=sharing" target="_blank">Ministry of Investment Excel Extraction</a></li>
+            <li><a href="https://colab.research.google.com/drive/1xND5gbqpENimfEl2a7mXyYqy9vxHiGMb?usp=sharing" target="_blank">World Bank Extraction</a></li>
+            
         </ul>
     </section>
         <!-- TOOLS -->
@@ -272,3 +274,4 @@
     
 
 </html>
+
